@@ -54,6 +54,7 @@ updateCategory = async (req, res) => {
         category.category = body.category;
         category.cover = body.cover;
         category.isVisible = body.isVisible;
+        category.isCentered = body.isCentered;
         category.url = body.url;
         category
             .save()
