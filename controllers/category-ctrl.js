@@ -56,43 +56,6 @@ updateCategory = async (req, res) => {
         category.isVisible = body.isVisible;
         category.isCentered = body.isCentered;
         category.url = body.url;
-        category.order = body.order;
-        category
-            .save()
-            .then(() => {
-                return res.status(200).json({
-                    success: true,
-                    id: category._id,
-                    message: 'Category updated !',
-                });
-            })
-            .catch(error => {
-                return res.status(404).json({
-                    error,
-                    message: 'Category not updated !',
-                });
-            })
-    })
-}
-
-updateCategoryOrder = async (req, res) => {
-    const body = req.body;
-
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a body to update',
-        });
-    }
-
-    Category.findOne({ _id: req.params.id }, (err, category) => {
-        if (err) {
-            return res.status(404).json({
-                err,
-                message: 'Category not found !',
-            });
-        }
-        category.order = body.order;
         category
             .save()
             .then(() => {

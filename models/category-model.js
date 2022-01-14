@@ -9,8 +9,7 @@ const Category = new Schema(
         cover: { type: String, required: false },
         isVisible: { type: Boolean, required: false },
         isCentered: { type: Boolean, required: false },
-        url: { type: String, required: false },
-        order: { type: Number, required: false },
+        url: { type: String, required: false }
     },
     { timestamps: false },
 )
